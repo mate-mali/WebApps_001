@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<head>
+    
+
+    <script>
+    function addMovie(movieTitle, movieYear, movieActors) {
+        var li = document.createElement("li")
+        li.innerHTML = "<input type='checkbox'> " + movieTitle + ", " + movieYear + ", " + movieActors;
+        
+        document.getElementById('inputlist').appendChild(li)
+
+        console.log("Added this thingy here: " + movieTitle + ", " + movieYear + ", " + movieActors)
+    }
+
+    function deleteMovie(ul) {
+        for (var i=0; i <ul.getElementsByTagName('li').length; i=i+1){
+            var checkedx = ul.getElementsByTagName('li')[i].getElementsByTagName('input')[0].checked
+            console.log("outer " + checkedx)
+            console.log('currently doing stuff for  '+ ul.getElementsByTagName('li')[i].innerText)
+            if(checkedx = true) {
+                console.log("removing row for  " + ul.getElementsByTagName('li')[i].innerText)
+                ul.removeChild(ul.childNodes[i])
+                console.log(checkedx)
+            }
+            else {
+                console.log('do nothing for '+ ul.getElementsByTagName('li')[i].innerText)
+            }
+        }
+    }
+</script>
+
+</head>
+<body>
+    <header>
+        
+        <div class="container">
+            <h1>My favorite Movies to watch</h1></h>
+            <h2>Titles</h2>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <label for="mtitle">Title:</label>
+            <input type="text" id="mtitle" name="fname">
+            <label for="myear">Year:</label>
+            <input type="text" id="myear" name="fname">
+            <label for="mactors">Actors:</label>
+            <input type="text" id="mactors" name="fname">
+            <button onclick="addMovie(
+                document.getElementById('mtitle').value,
+                document.getElementById('myear').value,
+                document.getElementById('mactors').value)">Add</button>
+        </div>
+        <ul id="inputlist">
+        <!-- <li></li> -->
+        </ul>
+        #TODO: fix this shit where removing actually removes much more than intended
+        <button onclick="deleteMovie(document.getElementById('inputlist'))">Remove Selected</button>
+    </main>
+    <footer>
+        <div class="container">
+        </div>
+    </footer>
+</body>
+</html>
