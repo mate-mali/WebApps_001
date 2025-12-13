@@ -10,7 +10,7 @@ def home():
     # for row in cursor:
     #     outputx.append([row[0], row[1], row[2], row[3]])
     return render_template('home.html', movies = cursor)
-    db.close()
+    # db.close()
 
 @app.route("/addMovies", methods=['GET', 'POST'])
 def add_movies():
@@ -31,7 +31,7 @@ def add_movies():
                        )
                        ''')
         db.commit()
-        db.close()
+        # db.close()
         return redirect(url_for('home'))
     return render_template('add.html')
 
