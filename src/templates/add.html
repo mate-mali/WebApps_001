@@ -12,7 +12,9 @@
         console.log("Added this thingy here: " + movieTitle + ", " + movieYear + ", " + movieActors)
     }
 
-    function deleteMovie(ul) {
+
+    function deleteMovieOld(ul) {
+
         for (var i=0; i <ul.getElementsByTagName('li').length; i=i+1){
             var checkedx = ul.getElementsByTagName('li')[i].getElementsByTagName('input')[0].checked
             console.log("outer " + checkedx)
@@ -27,6 +29,13 @@
             }
         }
     }
+    function deleteMovies(){
+        var checkedBoxes = document.querySelectorAll("input[type='checkbox']:checked")
+        for(i=0; i<checkedBoxes.length; i++)
+            console.log(i + " " + checkedBoxes[i].checked)
+    }
+
+
 </script>
 
 </head>
@@ -34,6 +43,7 @@
     <header>
         
         <div class="container">
+            <a href = '/'>Wroc Do Strony Domowej</a>
             <h1>My favorite Movies to watch</h1></h>
             <h2>Titles</h2>
         </div>
@@ -41,11 +51,11 @@
     <main>
         <div class="container">
             <label for="mtitle">Title:</label>
-            <input type="text" id="mtitle" name="fname">
+            <input type="text" id="mtitle" name="fname"><br><br>
             <label for="myear">Year:</label>
-            <input type="text" id="myear" name="fname">
+            <input type="text" id="myear" name="fname"><br><br>
             <label for="mactors">Actors:</label>
-            <input type="text" id="mactors" name="fname">
+            <input type="text" id="mactors" name="fname"><br><br><br>
             <button onclick="addMovie(
                 document.getElementById('mtitle').value,
                 document.getElementById('myear').value,
@@ -55,7 +65,7 @@
         <!-- <li></li> -->
         </ul>
         
-        <button onclick="deleteMovie(document.getElementById('inputlist'))">Remove Selected</button>
+        <button onclick="deleteMovies()">Remove Selected</button>
     </main>
     <footer>
         <div class="container">
