@@ -11,6 +11,7 @@
     }
 
 
+
     function deleteMovieOld(ul) {
 
         for (var i=0; i <ul.getElementsByTagName('li').length; i=i+1){
@@ -35,12 +36,29 @@
 
 
 </script>
+<style>
+body {
+  font-family: Arial;
+  margin: 0;
+}
 
+/* Header/Logo Title */
+.header {
+  padding: 60px;
+  text-align: center;
+  background: #ff7010;
+  color: white;
+  font-size: 15px;
+}
+
+/* Page Content */
+.content {padding:20px;}
+</style>
 </head>
 <body>
     <header>
         
-        <div class="container">
+        <div class="header">
             <a href = '/'>Wroc Do Strony Domowej</a>
             <h1>My favorite Movies to watch</h1></h>
             <h2>Titles</h2>
@@ -48,16 +66,18 @@
     </header>
     <main>
         <div class="container">
-            <label for="mtitle">Title:</label>
-            <input type="text" id="mtitle" name="fname"><br><br>
-            <label for="myear">Year:</label>
-            <input type="text" id="myear" name="fname"><br><br>
-            <label for="mactors">Actors:</label>
-            <input type="text" id="mactors" name="fname"><br><br><br>
-            <button onclick="addMovie(
-                document.getElementById('mtitle').value,
-                document.getElementById('myear').value,
-                document.getElementById('mactors').value)">Add</button>
+
+            <form method="POST" action="/addMovies">
+                <label for="mtitle">Title:</label>
+                <input type="text" id="mtitle" name="fname"><br><br>
+                <label for="myear">Year:</label>
+                <input type="text" id="myear" name="fname"><br><br>
+                <label for="mactors">Actors:</label>
+                <input type="text" id="mactors" name="fname"><br><br>
+                <input type="submit", value="Dodaj film do bazy">
+            </form>
+            <br>
+            
         </div>
         <ul id="inputlist">
         <!-- <li></li> -->
