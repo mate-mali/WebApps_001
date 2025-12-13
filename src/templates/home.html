@@ -12,7 +12,7 @@
             <h2>Lista Tytulow</h2>
             <ul>
             {% for movie in movies %}
-                <li>{{ movie[0] }}, {{ movie[1] }}, {{ movie[2] }}, {{ movie[3] }}</li>
+                <li><input type="checkbox" name="moviesToRemove" value={{ movie[0]}}>{{ movie[0] }}, {{ movie[1] }}, {{ movie[2] }}, {{ movie[3] }}</li>,
             {% endfor %}
             </ul>
         </div>

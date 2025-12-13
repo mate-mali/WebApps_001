@@ -12,7 +12,7 @@ def home():
     return render_template('home.html', movies = cursor)
     # db.close()
 
-@app.route("/addMovies", methods=['GET', 'POST'])
+@app.route("/addMovies", methods=['GET', 'POST', 'DELETE'])
 def add_movies():
     if request.method == 'POST':
         movieTitle = request.form.get('title')
