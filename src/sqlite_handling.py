@@ -1,4 +1,4 @@
-import sqlite3
+import sqlite3 
 db = sqlite3.connect('movies.db')
 cursor = db.cursor()
 
@@ -6,6 +6,14 @@ def listMovies():
     cursor.execute('SELECT * FROM movies')
     for row in cursor:
         print('{0}, {1}, {2}'.format(row[1], row[2], row[3]))
+
+def getMovieList():
+    outputx = []
+    cursor.execute('SELECT * FROM movies')
+    db.commit()
+    
+    return outputx
+
 
 def addMovie(title, year, actors):
     cursor.execute(f'INSERT INTO movies (title, year, actors) VALUES ("{title}",{year},"{actors}")')
@@ -19,6 +27,7 @@ def findMovie(key):
 
 
 # addMovie("test movie", 1923, "actors")
-listMovies()
-# findMovie("Indi")
+# listo = getMovieList()
+# # findMovie("Indi")
 
+# print(listo)

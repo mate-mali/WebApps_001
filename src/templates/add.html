@@ -6,9 +6,7 @@
     function addMovie(movieTitle, movieYear, movieActors) {
         var li = document.createElement("li")
         li.innerHTML = "<input type='checkbox'> " + movieTitle + ", " + movieYear + ", " + movieActors;
-        
         document.getElementById('inputlist').appendChild(li)
-
         console.log("Added this thingy here: " + movieTitle + ", " + movieYear + ", " + movieActors)
     }
 

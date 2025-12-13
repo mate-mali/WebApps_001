@@ -9,7 +9,12 @@
     <header>
         <div class="container">
             <h1><b>STRONA GLOWNA</b></h1></h>
-            <h2>Titles</h2>
+            <h2>Lista Tytulow</h2>
+            <ul>
+            {% for movie in movies %}
+                <li>{{ movie[0] }}, {{ movie[1] }}, {{ movie[2] }}, {{ movie[3] }}</li>
+            {% endfor %}
+            </ul>
         </div>
     </header>
     <main>
