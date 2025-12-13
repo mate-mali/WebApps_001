@@ -26,19 +26,23 @@ def sum(lat: float, lon: float):
     )
     return response.json()
 
-@app.get_movies():
-def movies(like = null):
+@app.get("/get_movies")
+def get_movies():
 
-    resp_json = []
-
+    otp = []
+    #http://127.0.0.1:8000/
     db = sqlite3.connect('movies.db')
     cursor = db.cursor()
     cursor.execute(f'''
                     select * from movies
                     ''')
-    for x
+    for movie in cursor:
+        moviex = {'id': row[0], 'title': row[1], 'year':row[2], '':row[3]}
+    db.close()
+    otp.append(moviex)
     
-    db.commit()
+    return(otp)
+
 
 
 # @app.get("/movies/{name}")
