@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <head>
-    <script>
-    
-</script>
+  <script>
+        function deleteMovies(){
+        var checkedBoxes = document.querySelectorAll("input[type='checkbox']:checked")
+        for(i=0; i<checkedBoxes.length; i++)
+            console.log(i + " " + checkedBoxes[i].checked)
+    }  
+	</script>
 <style>
 body {
   font-family: Arial;
@@ -10,18 +14,21 @@ body {
   font-size: 15px;
 }
 
-.header {
+header {
   padding-left: 25px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 1px;
+  padding-bottom: 1px;
   text-align: left;
   background: #270355;
   color: white;
   font-size: 15px;
 }
+listo {
+	padding: 25px;
+}
 
 main {
-  padding: 20px;
+  padding: 25px;
   text-align: left;
   background: #FFFFFF;
   color: graphite;
@@ -29,6 +36,7 @@ main {
 }
 
 h2 {
+  padding-left: 25px;
   font-size: 18px
 }
 
@@ -40,14 +48,21 @@ h2 {
     <header>
         <div class="container">
             <h1><b>STRONA GLOWNA</b></h1></h>
-            <h2>Lista Tytulow</h2>
-            <ul>
-            {% for movie in movies %}
-                <li><input type="checkbox" name="moviesToRemove" value={{ movie[0]}}>{{ movie[0] }}, {{ movie[1] }}, {{ movie[2] }}, {{ movie[3] }}</li>,
-            {% endfor %}
-            </ul>
         </div>
     </header>
+    <listo>
+    	<div class="container">
+            <h2>Lista Tytulow</h2>
+            <form method="POST" action="/deleteMovies">
+            <ul name="superlista">
+            {% for movie in movies %}
+                <li><input type="checkbox" name="moviesToRemove" value={{ movie[0]}}>{{ movie[0] }}, {{ movie[1] }}, {{ movie[2] }}, {{ movie[3] }},</li>
+            {% endfor %}
+            </ul>
+            <input type = "submit", value="Usun zaznaczone Filmy">
+            </form>
+        </div>
+      </listo>
     <main>
         <a href='/addMovies'>Idz do dodawania filmow</a>
     </main>
