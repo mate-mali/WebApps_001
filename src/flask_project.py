@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 import sqlite3 
 app = Flask(__name__)
 
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/", methods=['GET'])
 def home():
     if request.method == 'GET':
         db = sqlite3.connect('movies.db')
@@ -17,14 +17,18 @@ def deleteMovies():
         datalist = request.form.getlist('moviesToRemove') #unique keys to remove 
         remove_ids = f"({','.join(datalist)})"
         print(remove_ids)
-        db = sqlite3.connect('movies.db')
-        cursor = db.cursor()
-        cursor.execute(f'''
-                       DELETE FROM movies 
-                       WHERE 
-                       ID in {remove_ids}
-                       ''')
-        db.commit()
+        if len(datalist) == 0:
+            #do nothing
+            print("no data to delete")
+        else:
+            db = sqlite3.connect('movies.db')
+            cursor = db.cursor()
+            cursor.execute(f'''
+                        DELETE FROM movies 
+                        WHERE 
+                        ID in {remove_ids}
+                        ''')
+            db.commit()
         return redirect(url_for('home'))
   
 @app.route("/addMovies", methods=['GET', 'POST', 'DELETE'])
