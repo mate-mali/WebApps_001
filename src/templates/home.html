@@ -16,8 +16,8 @@ body {
 
 header {
   padding-left: 25px;
-  padding-top: 1px;
-  padding-bottom: 1px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   text-align: left;
   background: #270355;
   color: white;
@@ -28,29 +28,37 @@ listo {
 }
 
 main {
-  padding: 25px;
+  padding: 20px;
   text-align: left;
   background: #FFFFFF;
   color: graphite;
   font-size: 15px;
 }
 
-h2 {
+footer {
   padding-left: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: left;
+  color: white;
+  font-size: 15px;
+}
+
+h2 {
+
   font-size: 18px
 }
 
-/* Page Content */
-.content {padding:50px;}
 </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1><b>STRONA GLOWNA</b></h1></h>
+            <h1><b>Strona Główna</b></h1>
+            <h3><b>Moje ulubione filmy</b></h3>
         </div>
     </header>
-    <listo>
+    <main>
     	<div class="container">
             <h2>Lista Tytulow</h2>
             <form method="POST" action="/deleteMovies">
@@ -62,12 +70,10 @@ h2 {
             <input type = "submit", value="Usun zaznaczone Filmy">
             </form>
         </div>
-      </listo>
-    <main>
-        <a href='/addMovies'>Idz do dodawania filmow</a>
-    </main>
+      </main>
     <footer>
         <div class="container">
+          <a href='/addMovies'>Idz do dodawania filmow</a>
         </div>
     </footer>
 </body>

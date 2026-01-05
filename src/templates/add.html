@@ -41,7 +41,7 @@ body {
   font-size: 15px;
 }
 
-.header {
+header {
   padding-left: 25px;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -59,25 +59,32 @@ main {
   font-size: 15px;
 }
 
+footer {
+  padding-left: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: left;
+  color: white;
+  font-size: 15px;
+}
+
 h2 {
   font-size: 18px
 }
 
-/* Page Content */
-.content {padding:50px;}
 </style>
 </head>
 <body>
     <header>
         
         <div class="header">
-            <a href = '/'> <- Wroc Do Strony Domowej</a>
-            <h1>My favorite Movies to watch</h1></h>
+            <h1>Moje Ulubione filmy</h1></h>
+            <h3>Które bardzo lubię oglądać</h3></h>
         </div>
     </header>
     <main>
         <div class="container">
-			<h2>Add Titles</h2>
+			<h2>Dodawanie nowych tytułów</h2>
             <form method="POST" action="/addMovies">
                 <label for="mtitle">Title:</label>
                 <input type="text" id="mtitle" name="title"><br><br>
@@ -97,6 +104,7 @@ h2 {
     </main>
     <footer>
         <div class="container">
+            <a href = '/'> <- Wroc Do Strony Domowej</a>
         </div>
     </footer>
 </body>
