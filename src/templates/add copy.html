@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<head>
+    
+
+    <script>
+    function addMovie(movieTitle, movieYear, movieActors) {
+        var li = document.createElement("li")
+        li.innerHTML = "<input type='checkbox'> " + movieTitle + ", " + movieYear + ", " + movieActors;
+        document.getElementById('inputlist').appendChild(li)
+        console.log("Added this thingy here: " + movieTitle + ", " + movieYear + ", " + movieActors)
+    }
+
+
+
+    function deleteMovieOld(ul) {
+
+        for (var i=0; i <ul.getElementsByTagName('li').length; i=i+1){
+            var checkedx = ul.getElementsByTagName('li')[i].getElementsByTagName('input')[0].checked
+            console.log("outer " + checkedx)
+            console.log('currently doing stuff for  '+ ul.getElementsByTagName('li')[i].innerText)
+            if(checkedx = true) {
+                console.log("removing row for  " + ul.getElementsByTagName('li')[i].innerText)
+                ul.removeChild(ul.childNodes[i])
+                console.log(checkedx)
+            }
+            else {
+                console.log('do nothing for '+ ul.getElementsByTagName('li')[i].innerText)
+            }
+        }
+    }
+    function deleteMovies(){
+        var checkedBoxes = document.querySelectorAll("input[type='checkbox']:checked")
+        for(i=0; i<checkedBoxes.length; i++)
+            console.log(i + " " + checkedBoxes[i].checked)
+    }
+
+
+</script>
+<style>
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+/* Header/Logo Title */
+.header {
+  padding: 20px;
+  text-align: center;
+  background: #ff7010;
+  color: white;
+  font-size: 15px;
+}
+
+/* Page Content */
+.content {padding:20px;}
+</style>
+</head>
+<body>
+    <header>
+        
+        <div class="header">
+            <a href = '/'>Wroc Do Strony Domowej</a>
+            <h1>My favorite Movies to watch</h1></h>
+            <h2>Titles</h2>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+
+            <form method="POST" action="/addMovies">
+                <label for="mtitle">Title:</label>
+                <input type="text" id="mtitle" name="title"><br><br>
+                <label for="myear">Year:</label>
+                <input type="text" id="myear" name="year"><br><br>
+                <label for="mactors">Actors:</label>
+                <input type="text" id="mactors" name="actors"><br><br>
+                <input type="submit", value="Dodaj film do bazy">
+            </form>
+            <br>
+            
+        </div>
+        <ul id="inputlist">
+        <!-- <li></li> -->
+        </ul>
+        
+        <button onclick="deleteMovies()">Remove Selected</button>
+    </main>
+    <footer>
+        <div class="container">
+        </div>
+    </footer>
+</body>
+</html>
