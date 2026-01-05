@@ -8,10 +8,7 @@ def home():
     db = sqlite3.connect('movies.db')
     cursor = db.cursor()
     cursor.execute('SELECT * FROM movies')
-    # for row in cursor:
-    #     outputx.append([row[0], row[1], row[2], row[3]])
     return render_template('home.html', movies = cursor)
-    # db.close()
 
 @app.route("/addMovies", methods=['GET', 'POST', 'DELETE'])
 def add_movies():
