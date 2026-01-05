@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 import sqlite3 
 app = Flask(__name__)
 
+
 @app.route("/")
 def home():
     db = sqlite3.connect('movies.db')
@@ -38,3 +39,5 @@ def add_movies():
 
 if __name__ == '__main__':
     app.run()
+    app.config['TEMPLATES_AUTO_RELOAD'] = True
+    app.debug = True
